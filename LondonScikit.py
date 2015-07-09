@@ -1,7 +1,3 @@
-print(__doc__)
-'''london-scikit competions'''
-'''@author Guo Liu'''
-
 import numpy as np
 from sklearn.svm import LinearSVC
 from sklearn.svm import SVC
@@ -17,7 +13,7 @@ x_test = np.loadtxt(open("test.csv","rb"), delimiter=",", skiprows=0)
 tuned_parameters = {'C': 10.**np.arange(-5,5)}
 
 # conduct exhaustive gridsearch
-clf = GridSearchCV(LinearSVC(), tuned_parameters, cv=5)
+clf = GridSearchCV(LinearSVC(), tuned_parameters, cv=5,verbose=3)
 clf.fit(x_train, y_train)
 
 # print report
